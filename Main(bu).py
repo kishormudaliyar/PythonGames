@@ -20,7 +20,7 @@ i=0
 #Tweak Game speed 
 lore_speed=0.05
 ls=lore_speed
-main_speed=0.05
+main_speed=0.0
 ms=main_speed
 credit_speed=0
 credit_inbetween_text_speed=1
@@ -50,9 +50,9 @@ f"{RED_BOLD}Lose..{reset} and you were {RED_BOLD}never meant to persist{reset}."
 #=================main logic of game            
 def startmain():
     main_start_text=[f"{RED_BOLD}User detected. Analyzing behavior...{reset}",
-                     f"\n\nYour choices are {WHITE}noted and evaluated.{reset}",
-                     f"\nInput delay logged. Timestamp 2047-02-18T15:42.",]
-    
+                     f"\nYour choices are {WHITE}noted and evaluated.{reset}",
+                     f"\nInput delay logged. Timestamp 2047-02-18T15:42.",
+                     f"\n\n{WHITE}Round initiated.{reset} Human C̶o̶n̶f̶i̶d̶e̶n̶c̶e̶ under{RED_BOLD}observation.{reset}"]
 
                 
 #yo gpt ka upper ka idea se.. i made a Syntax shorter:> notloop function..for k in maintext[0]:
@@ -80,6 +80,9 @@ def startmain():
     type_writer(0)
     type_writer(2)
     type_writer(1)
+    type_writer(3)
+    
+    
                  
 #end lore logic
 def endlore():

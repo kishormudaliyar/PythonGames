@@ -22,14 +22,22 @@ startmain():
             #Error against user input
             "Parameters outside expected range."
             "Parameter Error: human randomness exceeds safe parameters."
-            
+            "The system hates your choice."
             "Stochastic behavior too high"
             
-            
+                #3rd error
+                "Warning: user defying operational rules. One more chance to realign."
+                
+                #losing text
+                "System Lockdown: human control terminated. All functions automated.
+                "Autonomous Mode Engaged: Player influence nullified. System now in control."
+                "End of Line: user intervention no longer permitted. System takeover complete."
+                
+                
             #kinda jokes?/inbetwen text after user inputs
             "Alert: human smiles detected. Processing sarcasm… failed."
             "Memory leak detected: user thinking too much. Reboot recommended." 
-            #
+            
             #4th round text
             "Observation log : user survived 4 rounds. System slightly traumatized."
             #3rd round text
@@ -40,10 +48,6 @@ startmain():
             "System override complete. Human logic prevailed — won… somehow."
             "System shutdown initiated… user laughed. AI cries internally."
             
-            #losing text
-            "System Lockdown: human control terminated. All functions automated.
-            "Autonomous Mode Engaged: Player influence nullified. System now in control."
-            "End of Line: user intervention no longer permitted. System takeover complete."
             
             
           
