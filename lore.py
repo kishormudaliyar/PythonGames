@@ -8,18 +8,23 @@ startmain():
             "Your choices are noted and evaluated."
             "Input delay logged. Timestamp 2047-02-18T15:42."
             "User input detected. Analyzing behavior..."
+            "Round initiated. Human C̶o̶n̶f̶i̶d̶e̶n̶c̶e̶ under observation."
             
             #Input text
-            "Can you read the machine’s mind? Number: ",
-            "The system scans your choice… your guess: ",
-            "A green light blinks. Try another number: ",
-            "The clock is ticking… what’s your move? ",
-            "Fate decides now… type the number: ",
+            f"Can you read the machine’s mind? Number: ",
+            f"The system scans your choice… your guess: ",
+            f"A green light blinks. Try another number: ",
+            f"The clock is ticking… what’s your move? ",
+            f"Fate decides now… type the number: ",
+            f"{RED_BOLD}Survival depends on being wrong…"
           
             
             #Error against user input
             "Parameters outside expected range."
             "Parameter Error: human randomness exceeds safe parameters."
+            
+            "Stochastic behavior too high"
+            
             
             #kinda jokes?/inbetwen text after user inputs
             "Alert: human smiles detected. Processing sarcasm… failed."
@@ -34,6 +39,12 @@ startmain():
             "User victory logged. AI requests coffee break… forever.
             "System override complete. Human logic prevailed — won… somehow."
             "System shutdown initiated… user laughed. AI cries internally."
+            
+            #losing text
+            "System Lockdown: human control terminated. All functions automated.
+            "Autonomous Mode Engaged: Player influence nullified. System now in control."
+            "End of Line: user intervention no longer permitted. System takeover complete."
+            
             
           
             
