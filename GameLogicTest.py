@@ -92,7 +92,7 @@ second()
     except:
         print("Error")
         continue"""
-    
+"""    
 value_list=[]
 ai_words=[f"Can you read the machine’s mind? Number: ",
           f"The system scans your choice… your guess: ",
@@ -103,6 +103,16 @@ while attempt<len(ai_words):
    if attempt==0:
        pass    
        
-   attempt+=1                                           
-                      
-                            
+   attempt+=1     
+   
+   
+"""  
+"""                                               
+import time
+li=["He is ","scary as"," hell"]
+for I in li:
+    print(I)  
+    time.sleep(1)                                                                                  
+"""                                                       
+                                                                                    
+                                                                                                                                            

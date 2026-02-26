@@ -52,7 +52,7 @@ def startmain():
     main_start_text=[f"{RED_BOLD}User detected. Analyzing behavior...{reset}",
                      f"\nYour choices are {WHITE}noted and evaluated.{reset}",
                      f"\nInput delay logged. Timestamp 2047-02-18T15:42.",
-                     f"\n\n{WHITE}Round initiated.{reset} Human C̶o̶n̶f̶i̶d̶e̶n̶c̶e̶ under{RED_BOLD}observation.{reset}"]
+                     f"\n\n{WHITE}Round initiated.{reset} {WHITE}Human C̶o̶n̶f̶i̶d̶e̶n̶c̶e̶ under{RED_BOLD}observation.{reset}\n"]
 
                 
 #yo gpt ka upper ka idea se.. i made a Syntax shorter:> notloop function..for k in maintext[0]:
@@ -70,19 +70,46 @@ def startmain():
 #got tips from gpt (this code is good but still not reusable coz.. typewriter funtion mei use krne bol rha hai.. 1 typewriter function (reusable) and then use it with maintext[i] typew(maintext[i])) like this, === Great idea.. but I dont wana use gpt idea .. let this game be human made (85%) :>
 #typew type hi hai but :> I made it..
 
-    def type_writer(i):
+    def start_type_writer(i):
        for n in main_start_text[i]:
            print(n,end="",flush=True)
            time.sleep(ms)
                                                      
-                
-                
-    type_writer(0)
-    type_writer(2)
-    type_writer(1)
-    type_writer(3)
+    start_type_writer(0)
+    start_type_writer(2)
+    start_type_writer(1)
+    start_type_writer(3)
     
+    main_game_text=[f"Can you read the machine’s mind? Number: ",
+                    f"\nThe system {GREEN}scans{reset} your choice… your guess: ",
+                    f"\nA {GREEN}green light{reset} blinks. Try another number: ",
+                    f"\nThe clock is {GREEN}ticking…{reset} what’s your move? ",
+                    
+                    f"{RED_BOLD}Survival{reset} depends on being wrong…",
+                    f"{GREEN}Input received:{reset}User still {RED_BOLD}alive{reset}. \nProbability of {RED_BOLD}survival: 37.2%.{reset} Lol.\n",
+                    f"Observation log : {RED_BOLD}User{reset} survived 4 rounds.\nSystem slightly traumatized.\n"]
     
+    def main_type_writer(i):
+        for w in main_game_text[i]:
+            print(w,end="",flush=True)
+        
+    #var
+    attempt=0
+    value_list=[]
+    while attempt < 5:
+        value=int(input(main_game_text[attempt]))                       
+        value_list.append(value)
+        attempt+=1
+        if attempt==4:
+            main_type_writer(-1)                            
+        if attempt==3:
+            main_type_writer(-2)          
+                  
+    main_game_error=[f"Parameters outside expected range."
+                     f"Parameter Error: human randomness exceeds safe parameters."
+                     f"The system hates your choice."
+                     f"Stochastic behavior too high"]
+            
                  
 #end lore logic
 def endlore():
