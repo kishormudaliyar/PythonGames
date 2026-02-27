@@ -98,32 +98,47 @@ def startmain():
         for w in main_game_text[i]:
             print(w,end="",flush=True)
             time.sleep(ms)
-    main_game_error=[f"Parameters outside expected range.(1-10)"
-                     f"Parameter Error: human randomness exceeds safe parameters."
-                     f"The system hates your choice."
-                     f"Stochastic behavior too high"]
+    main_game_error=[f"Parameters outside expected range.(1-10)\n",
+                     f"Parameter Error: human randomness exceeds safe parameters.\n",
+                     f"The system hates your choice.\n",
+                     f"Stochastic behavior too high\n"]
                     
-    def main_type_writer(i):
+    def error_type_writer(i):
         for w in main_game_error[i]:
             print(w,end="",flush=True)
             time.sleep(ms)
+    def type(text):
+        for p in text:
+            print(p,end="",flush=True)
+            time.sleep(ms)
     #var
     attempt=0
+    error=0
     value_list=[]
     while attempt < 5:
-        main_type_writer(attempt)
-        value=int(input(""))
-        if value not in range(1,11):
-            error=random.choice(0,1,2,3)
-            
-            main_game_error.pop(error)                          
-        value_list.append(value)
-        attempt+=1
-        if attempt==4:
-            main_type_writer(-1)                            
-        if attempt==3:
-            main_type_writer(-2)          
-                  
+        try:
+            main_type_writer(attempt)
+            value=int(input(""))
+            if attempt==4:
+                main_type_writer(-1)                            
+            if attempt==3:
+                main_type_writer(-2)          
+        except:
+            print("except block")
+            error+=1
+            if error==4:
+                type("Bruh")
+                
+            continue
+        if value in range(1,11):
+            value_list.append(value)
+            attempt+=1
+        else:
+            error_type_writer(attempt)    
+                #error=random.choice(0,1,2,3)
+                #error_type_writer(error)
+                #main_game_error.pop(error)
+                       
     
                      
 #end lore logic
