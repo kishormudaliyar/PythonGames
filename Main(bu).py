@@ -29,19 +29,19 @@ cts=credit_inbetween_text_speed
 #==============Staring Lore=========
 def startlore():
    lore = (
-f" In the year 2047,\n Scientists created a {PURPLE}SYSTEM{reset} to measure human "
-f"{GREEN}intelligence{reset},\n but a {PURPLE}glitch{reset} twisted its purpose. "
-f"The {PURPLE}machine{reset} no longer seeks the \n{GREEN} correct number{reset}—\n"
-f" it watches,\n it judges,\n and it {RED_BOLD}PUNISHES{reset} {GREEN}predictability{reset}\n\n "
-f"Now the rules are inverted: only those who deliberately choose\n the {YELLOW}wrong number{reset}, "
-f"who dare to think against {GREEN}logic{reset}, can survive its trials. "
-f"Guessing right is {RED_BOLD}DEATH{reset}; being wrong is the only path to\n {YELLOW}victory{reset}. "
-
-f"\n\n This is a {GREEN}contest of probability{reset}. "
-f"{YELLOW}Win five rounds{reset} and the \n{PURPLE} system fractures{reset}."
-f"{RED_BOLD}Lose..{reset} and you were {RED_BOLD}never meant to persist{reset}."
-)
-
+            f" In the year 2047,\n Scientists created a {PURPLE}SYSTEM{reset} to measure human "
+            f"{GREEN}intelligence{reset},\n but a {PURPLE}glitch{reset} twisted its purpose. "
+            f"The {PURPLE}machine{reset} no longer seeks the \n{GREEN} correct number{reset}—\n"
+            f" it watches,\n it judges,\n and it {RED_BOLD}PUNISHES{reset} {GREEN}predictability{reset}\n\n "
+            f"Now the rules are inverted: only those who deliberately choose\n the {YELLOW}wrong number{reset}, "
+            f"who dare to think against {GREEN}logic{reset}, can survive its trials. "
+            f"Guessing right is {RED_BOLD}DEATH{reset}; being wrong is the only path to\n {YELLOW}victory{reset}. "
+            
+            f"\n\n This is a {GREEN}contest of probability{reset}. "
+            f"{YELLOW}Win five rounds{reset} and the \n{PURPLE} system fractures{reset}."
+            f"{RED_BOLD}Lose..{reset} and you were {RED_BOLD}never meant to persist{reset}.\n"
+          )
+            
    for I in lore:
     print(I,end="",flush=True)
     time.sleep(ls)
@@ -49,10 +49,11 @@ f"{RED_BOLD}Lose..{reset} and you were {RED_BOLD}never meant to persist{reset}."
   
 #=================main logic of game            
 def startmain():
-    main_start_text=[f"{RED_BOLD}User detected. Analyzing behavior...{reset}",
-                     f"\nYour choices are {WHITE}noted and evaluated.{reset}",
-                     f"\nInput delay logged. Timestamp 2047-02-18T15:42.",
-                     f"\n\n{WHITE}Round initiated.{reset} {WHITE}Human C̶o̶n̶f̶i̶d̶e̶n̶c̶e̶ under{RED_BOLD}observation.{reset}\n"]
+    main_start_text=(f"\n {RED_BOLD}User detected. Analyzing behavior...{reset}"
+                     f"\n Input delay logged. Timestamp 2047-02-18T15:42."
+                     f"\n Your choices are {WHITE}noted and evaluated.{reset}"
+                     f"\n Protocol Initialized: Input must be within range {RED_BOLD}1–10{reset}\n"
+                     f"\n\n {WHITE}Round initiated.{reset} {WHITE}Human C̶o̶n̶f̶i̶d̶e̶n̶c̶e̶ under{RED_BOLD}observation.{reset}\n\n")
 
                 
 #yo gpt ka upper ka idea se.. i made a Syntax shorter:> notloop function..for k in maintext[0]:
@@ -69,35 +70,53 @@ def startmain():
                         
 #got tips from gpt (this code is good but still not reusable coz.. typewriter funtion mei use krne bol rha hai.. 1 typewriter function (reusable) and then use it with maintext[i] typew(maintext[i])) like this, === Great idea.. but I dont wana use gpt idea .. let this game be human made (85%) :>
 #typew type hi hai but :> I made it..
-
-    def start_type_writer(i):
-       for n in main_start_text[i]:
-           print(n,end="",flush=True)
-           time.sleep(ms)
-                                                     
-    start_type_writer(0)
-    start_type_writer(2)
-    start_type_writer(1)
-    start_type_writer(3)
+    for o in main_start_text:
+        print(o,end="",flush=True)
+        time.sleep(ms)
+        
     
+    #def start_type_writer(i):
+#       for n in main_start_text[i]:
+#           print(n,end="",flush=True)
+#           time.sleep(ms)
+#                                                     
+#    start_type_writer(0)
+#    start_type_writer(2)
+#    start_type_writer(1)
+#    start_type_writer(3)
+#    
     main_game_text=[f"Can you read the machine’s mind? Number: ",
                     f"\nThe system {GREEN}scans{reset} your choice… your guess: ",
                     f"\nA {GREEN}green light{reset} blinks. Try another number: ",
                     f"\nThe clock is {GREEN}ticking…{reset} what’s your move? ",
                     
-                    f"{RED_BOLD}Survival{reset} depends on being wrong…",
+                    f"\n{RED_BOLD}Survival{reset} depends on being wrong…",
                     f"{GREEN}Input received:{reset}User still {RED_BOLD}alive{reset}. \nProbability of {RED_BOLD}survival: 37.2%.{reset} Lol.\n",
                     f"Observation log : {RED_BOLD}User{reset} survived 4 rounds.\nSystem slightly traumatized.\n"]
     
     def main_type_writer(i):
         for w in main_game_text[i]:
             print(w,end="",flush=True)
-        
+            time.sleep(ms)
+    main_game_error=[f"Parameters outside expected range.(1-10)"
+                     f"Parameter Error: human randomness exceeds safe parameters."
+                     f"The system hates your choice."
+                     f"Stochastic behavior too high"]
+                    
+    def main_type_writer(i):
+        for w in main_game_error[i]:
+        print(w,end="",flush=True)
+        time.sleep(ms)
     #var
     attempt=0
     value_list=[]
     while attempt < 5:
-        value=int(input(main_game_text[attempt]))                       
+        main_type_writer(attempt)
+        value=int(input(""))
+        if value not in range(1,11):
+            error=random.choice(0,1,2,3)
+            
+            main_game_error.pop(error)                          
         value_list.append(value)
         attempt+=1
         if attempt==4:
@@ -105,12 +124,8 @@ def startmain():
         if attempt==3:
             main_type_writer(-2)          
                   
-    main_game_error=[f"Parameters outside expected range."
-                     f"Parameter Error: human randomness exceeds safe parameters."
-                     f"The system hates your choice."
-                     f"Stochastic behavior too high"]
-            
-                 
+    
+                     
 #end lore logic
 def endlore():
                 pass
