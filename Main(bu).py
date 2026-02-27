@@ -105,8 +105,8 @@ def startmain():
                     
     def main_type_writer(i):
         for w in main_game_error[i]:
-        print(w,end="",flush=True)
-        time.sleep(ms)
+            print(w,end="",flush=True)
+            time.sleep(ms)
     #var
     attempt=0
     value_list=[]
