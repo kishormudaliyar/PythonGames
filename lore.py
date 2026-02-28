@@ -32,11 +32,23 @@ startmain():
                 "System Lockdown: human control terminated. All functions automated.
                 "Autonomous Mode Engaged: Player influence nullified. System now in control."
                 "End of Line: user intervention no longer permitted. System takeover complete."
+                #4th error
+                "[PATCH_REQUIRED] Install common sense v1.0."
+                "No further warnings will be issued."
+                "No retries remaining."
+                #duplicate error
+                f"[System] Duplicate value detected."
+                f"[System] Repeating fate changes nothing."
+                f"[Developer] The system remembers."
+                f"[System] Trying the same trick twice?"
+                    
                 
-                
-            #kinda jokes?/inbetwen text after user inputs
+            #kinda jokes?/inbetwen text after u;;'ser inputs
             "Alert: human smiles detected. Processing sarcasm… failed."
             "Memory leak detected: user thinking too much. Reboot recommended." 
+            "[DEBUG] No bugs detected. Just you."
+            "[SESSION] You’re still alive. For now."
+            "[SYSTEM] Are you thinking… or guessing?"
             
             #4th round text
             "Observation log : user survived 4 rounds. System slightly traumatized."
@@ -48,10 +60,7 @@ startmain():
             "System override complete. Human logic prevailed — won… somehow."
             "System shutdown initiated… user laughed. AI cries internally."
             
-            
-            
-          
-            
+                    
 
 Endlore():
 "The trials are complete. Against all logic, you chose wrong… and yet, you survived. The system stutters, recalculates, and finally concedes: human unpredictability cannot be contained. Every calculation, every pattern, every expectation you defied—proving that sometimes chaos triumphs over order. In a world ruled by algorithms, you carved your own path. Victory is yours. The machine watches silently now, learning that some games are meant to be lost… by the system itself. Congratulations… you have mastered the art of being wrong."

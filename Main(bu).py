@@ -53,7 +53,7 @@ def startmain():
                      f"\n Input delay logged. Timestamp 2047-02-18T15:42."
                      f"\n Your choices are {WHITE}noted and evaluated.{reset}"
                      f"\n Protocol Initialized: Input must be within range {RED_BOLD}1–10{reset}\n"
-                     f"\n\n {WHITE}Round initiated.{reset} {WHITE}Human C̶o̶n̶f̶i̶d̶e̶n̶c̶e̶ under{RED_BOLD}observation.{reset}\n\n")
+                     f"\n\n {WHITE}Round initiated.{reset} {WHITE}Human I̶n̶t̶e̶l̶l̶i̶g̶e̶n̶c̶e̶ under{RED_BOLD}observation.{reset}\n\n")
 
                 
 #yo gpt ka upper ka idea se.. i made a Syntax shorter:> notloop function..for k in maintext[0]:
@@ -85,27 +85,43 @@ def startmain():
 #    start_type_writer(1)
 #    start_type_writer(3)
 #    
-    main_game_text=[f"Can you read the machine’s mind? Number: ",
+    main_game_text=[f" Can you read the machine’s mind? Number: ",
                     f"\nThe system {GREEN}scans{reset} your choice… your guess: ",
                     f"\nA {GREEN}green light{reset} blinks. Try another number: ",
                     f"\nThe clock is {GREEN}ticking…{reset} what’s your move? ",
+                    f"\n{RED_BOLD}Survival{reset} depends on being wrong…"]
+                 
+    
+    main_game_error=[f" Parameters outside expected range.(1-10)\n",
+                     f" Parameter Error: human randomness exceeds safe parameters.\n",
+                     f" The system hates your choice.\n",
+                     f" Stochastic behavior too high\n"
+                     f" Whoa there… the range is 1 to 10, not 1 to infinity.\n",
+                     f" Range: 1–10. You chose chaos.\n",
+                     f" Out of range. The system raises an eyebrow.\n",
+                     f" Impressive confidence. Terrible range awareness.\n",
+                     f" Limits were given. You ignored them.\n",
+                     f" The system recognizes only bounded thought.\n",
+                     f" You attempt to defy defined limits.\n",]
+                     
+                     
+    main_game_derror=[f" [System] Duplicate value detected.\n"
+                     f" [Developer] The system remembers.\n",
+                     f" [System] Trying the same trick twice?\n",
+                     f" [System] Repeating fate changes nothing.\n",
+                     f" [PATCH_REQUIRED] Install common sense v1.0.\n"
+                     f" No further warnings will be issued.\n"
+                     f" No retries remaining.\n"]
+                     
+                     
+    main_game_fun=[f" Alert: human smiles detected. Processing sarcasm… failed.\n",
+                   f" Memory leak detected: user thinking too much. Reboot recommended.\n",
+                   f" [DEBUG] No bugs detected. Just you.\n",
+                   f" [SESSION] You’re still alive. For now.\n",
+                   f" [SYSTEM] Are you thinking… or guessing?\n",
+                   f" {GREEN}Input received:{reset}User still {RED_BOLD}alive{reset}. \nProbability of {RED_BOLD}survival: 37.2%.{reset} Lol.\n",
+                   f" Observation log : {RED_BOLD}User{reset} survived 4 rounds.\nSystem slightly traumatized.\n"]
                     
-                    f"\n{RED_BOLD}Survival{reset} depends on being wrong…",
-                    f"{GREEN}Input received:{reset}User still {RED_BOLD}alive{reset}. \nProbability of {RED_BOLD}survival: 37.2%.{reset} Lol.\n",
-                    f"Observation log : {RED_BOLD}User{reset} survived 4 rounds.\nSystem slightly traumatized.\n"]
-    
-    
-    main_game_error=[f"Parameters outside expected range.(1-10)\n",
-                     f"Parameter Error: human randomness exceeds safe parameters.\n",
-                     f"The system hates your choice.\n",
-                     f"Stochastic behavior too high\n"
-                     f"Whoa there… the range is 1 to 10, not 1 to infinity.",
-                     f"Range: 1–10. You chose chaos.",
-                     f"Out of range. The system raises an eyebrow.",
-                     f"Impressive confidence. Terrible range awareness.",
-                     f"Limits were given. You ignored them.",
-                     f"The system recognizes only bounded thought.",
-                     f"You attempt to defy defined limits."]
     def main_type_writer(i):
         for w in main_game_text[i]:
             print(w,end="",flush=True)
@@ -114,6 +130,15 @@ def startmain():
         for w in main_game_error[i]:
             print(w,end="",flush=True)
             time.sleep(ms)
+    def derror_type_writer(i):
+        for k in main_game_derror[i]:
+            print(k,end="",flush=True)
+            time.sleep(ms) 
+    def fun_type_writer(i):
+        for a in main_game_fun[i]:
+            print(a,end="",flush=True)
+            time.sleep(ms)
+    #temp type_writer() checker
     def type(text):
         for p in text:
             print(p,end="",flush=True)
@@ -121,29 +146,40 @@ def startmain():
     #var
     attempt=0
     error=0
+    d_error=11
     value_list=[]
     while attempt < 5:
         try:
             main_type_writer(attempt)
             value=int(input(""))
-            if attempt==4:
-                main_type_writer(-1)                            
-            if attempt==3:
-                main_type_writer(-2)          
+            if value in value_list:
+                derror_type_writer(d_error)
+                d_error+=1
+                error+=1 
+            elif value in range(1,11):
+                value_list.append(value)
+                attempt+=1
+                if attempt==1:fun_type_writer(4)
+                if attempt==2:fun_type_writer(1)
+                if attempt==3:fun_type_writer(-2)
+                if attempt==4:fun_type_writer(-1);fun_type_writer(0)
+            else:
+                error_type_writer(attempt)
+                error+=1
         except:
-            print("except block")
+            r_error=random.randint(0,)
+            error_type_writer(error)
             error+=1
             continue
-        if value in range(1,11):
-            value_list.append(value)
-            attempt+=1
-        else:
-            error_type_writer(attempt)    
+        
+        
+              
                 #error=random.choice(0,1,2,3)
                 #error_type_writer(error)
                 #main_game_error.pop(error)
-            if error==4:
-                type("Bruh")           
+        
+            
+                      
     
                      
 #end lore logic
