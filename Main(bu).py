@@ -94,15 +94,22 @@ def startmain():
                     f"{GREEN}Input received:{reset}User still {RED_BOLD}alive{reset}. \nProbability of {RED_BOLD}survival: 37.2%.{reset} Lol.\n",
                     f"Observation log : {RED_BOLD}User{reset} survived 4 rounds.\nSystem slightly traumatized.\n"]
     
-    def main_type_writer(i):
-        for w in main_game_text[i]:
-            print(w,end="",flush=True)
-            time.sleep(ms)
+    
     main_game_error=[f"Parameters outside expected range.(1-10)\n",
                      f"Parameter Error: human randomness exceeds safe parameters.\n",
                      f"The system hates your choice.\n",
-                     f"Stochastic behavior too high\n"]
-                    
+                     f"Stochastic behavior too high\n"
+                     f"Whoa there… the range is 1 to 10, not 1 to infinity.",
+                     f"Range: 1–10. You chose chaos.",
+                     f"Out of range. The system raises an eyebrow.",
+                     f"Impressive confidence. Terrible range awareness.",
+                     f"Limits were given. You ignored them.",
+                     f"The system recognizes only bounded thought.",
+                     f"You attempt to defy defined limits."]
+    def main_type_writer(i):
+        for w in main_game_text[i]:
+            print(w,end="",flush=True)
+            time.sleep(ms)                                
     def error_type_writer(i):
         for w in main_game_error[i]:
             print(w,end="",flush=True)
@@ -126,9 +133,6 @@ def startmain():
         except:
             print("except block")
             error+=1
-            if error==4:
-                type("Bruh")
-                
             continue
         if value in range(1,11):
             value_list.append(value)
@@ -138,7 +142,8 @@ def startmain():
                 #error=random.choice(0,1,2,3)
                 #error_type_writer(error)
                 #main_game_error.pop(error)
-                       
+            if error==4:
+                type("Bruh")           
     
                      
 #end lore logic
