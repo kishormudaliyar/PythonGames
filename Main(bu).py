@@ -148,6 +148,7 @@ def startmain():
     error=0
     d_error=11
     value_list=[]
+    right_number=random.randint(0,10)
     while attempt < 5:
         try:
             main_type_writer(attempt)
@@ -171,7 +172,7 @@ def startmain():
             error_type_writer(error)
             error+=1
             continue
-        
+        if value==wrong_number:
         
               
                 #error=random.choice(0,1,2,3)
