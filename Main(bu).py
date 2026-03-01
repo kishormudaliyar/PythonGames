@@ -95,7 +95,7 @@ def startmain():
     main_game_error=[f" Parameters outside expected range.(1-10)\n",
                      f" Parameter Error: human randomness exceeds safe parameters.\n",
                      f" The system hates your choice.\n",
-                     f" Stochastic behavior too high\n"
+                     f" Stochastic behavior too high\n",
                      f" Whoa there… the range is 1 to 10, not 1 to infinity.\n",
                      f" Range: 1–10. You chose chaos.\n",
                      f" Out of range. The system raises an eyebrow.\n",
@@ -105,7 +105,7 @@ def startmain():
                      f" You attempt to defy defined limits.\n",]
                      
                      
-    main_game_derror=[f" [System] Duplicate value detected.\n"
+    main_game_derror=[f" [System] Duplicate value detected.\n", 
                      f" [Developer] The system remembers.\n",
                      f" [System] Trying the same trick twice?\n",
                      f" [System] Repeating fate changes nothing.\n",
@@ -146,7 +146,7 @@ def startmain():
     #var
     attempt=0
     error=0
-    d_error=11
+    d_error=0
     value_list=[]
     right_number=random.randint(0,10)
     while attempt < 5:
@@ -165,14 +165,20 @@ def startmain():
                 if attempt==3:fun_type_writer(-2)
                 if attempt==4:fun_type_writer(-1);fun_type_writer(0)
             else:
-                error_type_writer(attempt)
+                
                 error+=1
+            if error == 4:derror_type_writer(4);continue
+            if error == 5 or d_error==5:
+                type("\nSystem Lockdown: human control terminated. All functions automated.\nAutonomous Mode Engaged: Player influence nullified. System now in control.\nEnd of Line: user intervention no longer permitted. System takeover complete.")
+                break
+                error_type_writer(error)
         except:
-            r_error=random.randint(0,)
+            r_error=random.randint(0,len(main_game_error))
             error_type_writer(error)
             error+=1
             continue
-        if value==wrong_number:
+        if value==right_number:
+            pass
         
               
                 #error=random.choice(0,1,2,3)
