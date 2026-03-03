@@ -20,7 +20,7 @@ i=0
 #Tweak Game speed 
 lore_speed=0.05
 ls=lore_speed
-main_speed=0.0
+main_speed=.01
 ms=main_speed
 credit_speed=0
 credit_inbetween_text_speed=1
@@ -106,7 +106,7 @@ def startmain():
                      
                      
     main_game_derror=[f" [System] Duplicate value detected.\n", 
-                     f" [Developer] The system remembers.\n",
+                     f" [Developer] The system remembers,Try again.\n",
                      f" [System] Trying the same trick twice?\n",
                      f" [System] Repeating fate changes nothing.\n",
                      f" [PATCH_REQUIRED] Install common sense v1.0.\n"
@@ -121,7 +121,12 @@ def startmain():
                    f" [SYSTEM] Are you thinking… or guessing?\n",
                    f" {GREEN}Input received:{reset}User still {RED_BOLD}alive{reset}. \nProbability of {RED_BOLD}survival: 37.2%.{reset} Lol.\n",
                    f" Observation log : {RED_BOLD}User{reset} survived 4 rounds.\nSystem slightly traumatized.\n"]
-                    
+    
+    main_game_end=(f"[BOOM] You weren’t supposed to be right.\n"
+                   f"Round Terminated.\n"
+                   f"YOU HAVE BEEN ELIMINATED.\n"
+                   f"{RED_BOLD}GAME OVER.{reset}\n")
+                                    
     def main_type_writer(i):
         for w in main_game_text[i]:
             print(w,end="",flush=True)
@@ -147,12 +152,13 @@ def startmain():
     attempt=0
     error=0
     d_error=0
-    value_list=[]
-    right_number=random.randint(0,10)
+    value_list=[] 
+    boom=random.randint(0,10)
     while attempt < 5:
         try:
             main_type_writer(attempt)
             value=int(input(""))
+            print(boom)
             if value in value_list:
                 derror_type_writer(d_error)
                 d_error+=1
@@ -160,25 +166,30 @@ def startmain():
             elif value in range(1,11):
                 value_list.append(value)
                 attempt+=1
-                if attempt==1:fun_type_writer(4)
-                if attempt==2:fun_type_writer(1)
+                randfun=random.randint(0,4)
+                if attempt==1:fun_type_writer(randfun)
+                if attempt==2:fun_type_writer(randfun);main_game_fun.pop(randfun)
                 if attempt==3:fun_type_writer(-2)
                 if attempt==4:fun_type_writer(-1);fun_type_writer(0)
             else:
-                
                 error+=1
-            if error == 4:derror_type_writer(4);continue
-            if error == 5 or d_error==5:
-                type("\nSystem Lockdown: human control terminated. All functions automated.\nAutonomous Mode Engaged: Player influence nullified. System now in control.\nEnd of Line: user intervention no longer permitted. System takeover complete.")
-                break
+                if error == 4:derror_type_writer(4);continue
+                if error+d_error == 5:
+                    type("\nSystem Lockdown: human control terminated. All functions automated.\nAutonomous Mode Engaged: Player influence nullified. System now in control.\nEnd of Line: user intervention no longer permitted. System takeover complete.")
+                    break
                 error_type_writer(error)
         except:
-            r_error=random.randint(0,len(main_game_error))
-            error_type_writer(error)
+            r_error=random.randint(0,len(main_game_error)-1)
+            error_type_writer(r_error)
+            main_game_error.pop(r_error)
+            print(main_game_error)
             error+=1
             continue
-        if value==right_number:
-            pass
+        if value==boom:
+            for y in main_game_end:
+                print(y,end="",flush=True)
+                time.sleep(ms)
+            
         
               
                 #error=random.choice(0,1,2,3)
