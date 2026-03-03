@@ -22,6 +22,8 @@ lore_speed=0.05
 ls=lore_speed
 main_speed=.01
 ms=main_speed
+end_lore_speed=0.05
+es=end_lore_speed
 credit_speed=0
 credit_inbetween_text_speed=1
 cts=credit_inbetween_text_speed
@@ -153,7 +155,8 @@ def startmain():
     error=0
     d_error=0
     value_list=[] 
-    boom=random.randint(0,10)
+    game_status="win"
+    boom=random.randint(1,10)
     while attempt < 5:
         try:
             main_type_writer(attempt)
@@ -162,7 +165,13 @@ def startmain():
             if value in value_list:
                 derror_type_writer(d_error)
                 d_error+=1
-                error+=1 
+                error+=1
+            elif value==boom:
+                for y in main_game_end:
+                    print(y,end="",flush=True)
+                    time.sleep(ms)
+                game_status="lose"
+                break     
             elif value in range(1,11):
                 value_list.append(value)
                 attempt+=1
@@ -176,34 +185,29 @@ def startmain():
                 if error == 4:derror_type_writer(4);continue
                 if error+d_error == 5:
                     type("\nSystem Lockdown: human control terminated. All functions automated.\nAutonomous Mode Engaged: Player influence nullified. System now in control.\nEnd of Line: user intervention no longer permitted. System takeover complete.")
+                    game_status="lose"
                     break
                 error_type_writer(error)
         except:
             r_error=random.randint(0,len(main_game_error)-1)
             error_type_writer(r_error)
             main_game_error.pop(r_error)
-            print(main_game_error)
             error+=1
-            continue
-        if value==boom:
-            for y in main_game_end:
-                print(y,end="",flush=True)
-                time.sleep(ms)
-            
-        
-              
+            continue        
+    return game_status             
                 #error=random.choice(0,1,2,3)
                 #error_type_writer(error)
-                #main_game_error.pop(error)
-        
-            
-                      
-    
+                #main_game_error.pop(error) 
                      
 #end lore logic
-def endlore():
-                pass
-                
+def endlore(game_status):
+    endlore=(f"User victory logged. AI requests coffee break… forever."
+             f"System override complete. Human logic prevailed — won… somehow."
+             f"System shutdown initiated… user laughed. AI cries internally.")
+    if game_status=="win":         
+        for w in endlore:
+            print(w,end="",flush=True)
+            time.sleep(ms)                        
                 
 #self credit?😅  gpt's section   
 def credits():
@@ -281,8 +285,8 @@ def credits():
                 
 def main():
     #startlore()
-    startmain()
-    endlore()
+    game_status=startmain()
+    endlore(game_status)
     #credits()
     
 main()
